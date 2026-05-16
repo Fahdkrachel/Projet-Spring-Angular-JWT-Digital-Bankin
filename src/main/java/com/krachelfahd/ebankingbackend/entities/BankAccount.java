@@ -1,19 +1,19 @@
 package com.krachelfahd.ebankingbackend.entities;
 
 import com.krachelfahd.ebankingbackend.enums.AccountStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 import java.util.Date;
 import java.util.List;
 
 @Data @NoArgsConstructor @AllArgsConstructor
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE",length = 4)
 
 public class BankAccount {
     @Id
